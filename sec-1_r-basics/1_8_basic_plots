@@ -1,0 +1,15 @@
+library(dplyr)
+library(dslabs)
+data(murders)
+
+# a simple scatterplot of total murders versus population
+population_in_millions <- murders$population / 10 ^ 6
+total_gun_murders <- murders$total
+plot(population_in_millions, total_gun_murders, xlab = "Population (millions)", ylab = "Total murders")
+
+# a histogram of murder rates
+murders <- mutate(murders, rate = total / population * 10 ^ 6)
+hist(murders$rate)
+
+# boxplots of murder rates by region
+boxplot(rate~region, data = murders)
