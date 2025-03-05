@@ -24,4 +24,12 @@ grades <- data.frame(
 )
 grades
 # check data type of name column
-class(grades$name)
+class(grades$name)  # by default, data.frame turns character to factor (prior R 4.0.0)
+
+# create a data frame with stringAsFactors = FALSE
+grades <- data.frame(
+    name = c("John", "Juan", "jean", "Yao"),
+    exam_1 = c(95, 80, 90, 85),
+    exam_2 = c(90, 85, 85, 90),
+    stringsAsFactors = FALSE # after R 4.0.0, this is default
+)
