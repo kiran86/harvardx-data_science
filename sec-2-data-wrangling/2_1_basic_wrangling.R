@@ -18,18 +18,19 @@ murders %>% select(state, region, rate) %>% filter(rate <= 0.71)
 
 # creating a data frame with stringAsFactors = FALSE
 grades <- data.frame(
-    name = c("John", "Juan", "jean", "Yao"),
-    exam_1 = c(95, 80, 90, 85),
-    exam_2 = c(90, 85, 85, 90)
+  name = c("John", "Juan", "jean", "Yao"),
+  exam_1 = c(95, 80, 90, 85),
+  exam_2 = c(90, 85, 85, 90)
 )
 grades
 # check data type of name column
-class(grades$name)  # by default, data.frame turns character to factor (prior R 4.0.0)
+# by default, data.frame turns character to factor (prior R 4.0.0)
+class(grades$name)
 
 # create a data frame with stringAsFactors = FALSE
 grades <- data.frame(
-    name = c("John", "Juan", "jean", "Yao"),
-    exam_1 = c(95, 80, 90, 85),
-    exam_2 = c(90, 85, 85, 90),
-    stringsAsFactors = FALSE # after R 4.0.0, this is default
+  name = c("John", "Juan", "jean", "Yao"),
+  exam_1 = c(95, 80, 90, 85),
+  exam_2 = c(90, 85, 85, 90),
+  stringsAsFactors = FALSE # after R 4.0.0, this is default
 )
