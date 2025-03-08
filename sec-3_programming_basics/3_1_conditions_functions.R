@@ -45,3 +45,30 @@ sum(is.na(no_nas))
 z <- c(TRUE, TRUE, FALSE)
 any(z)
 all(z)
+
+# example of defining a function to compute the average of a vector x
+avg <- function(x) {
+  s <- sum(x)
+  n <- length(x)
+  s / n
+}
+x <- 1:100
+avg(x)
+
+# we see that the above function and
+# the pre-built R mean() function are identical
+identical(mean(x), avg(x))
+
+# variables inside a function are not defined in the workspace
+s <- 3
+avg(1:10)
+s
+
+# functions can have multiple arguments as well as default values
+avg1 <- function(x, arithmatic = TRUE) {
+  n <- length(x)
+  ifelse(arithmatic, sum(x) / n, prod(x) ^ (1 / n))
+}
+
+avg1(1:100)
+avg1(1:100, FALSE)
