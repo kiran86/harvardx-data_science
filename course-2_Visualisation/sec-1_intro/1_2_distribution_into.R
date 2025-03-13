@@ -1,4 +1,5 @@
-# load the dataset
+# load the libraries and dataset
+library(tidyverse)
 library(dslabs)
 data(heights)
 
@@ -14,3 +15,26 @@ cdf_function <- function(x) {
 }
 cdf_values <- sapply(a, cdf_function)
 plot(a, cdf_values, type = "l")
+
+#######################
+# Normal Distribution #
+#######################
+
+index <- heights$sex == "Male"
+x <- heights$height[index]
+
+# calculate the mean and standard deviation manually
+average <- sum(x) / length(x)
+SD <- sqrt(sum((x - average) ^ 2) / length(x))
+
+# built-in mean and sd functions
+# note that the audio and printed values disagree
+average <- mean(x)
+SD <- sd(x)
+c(average = average, SD = SD)
+
+# calculate standard units
+z <- scale(x)
+
+# calculate proportion of values within 2 SD mean
+mean(abs(z) < 2)
